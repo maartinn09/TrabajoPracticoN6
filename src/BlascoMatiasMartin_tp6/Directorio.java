@@ -6,8 +6,9 @@
 package BlascoMatiasMartin_tp6;
 
 
-import java.util.Iterator;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.util.TreeMap;
 
 /**
@@ -15,14 +16,14 @@ import java.util.TreeMap;
  * @author M
  */
 public class Directorio {
-    private TreeMap<String,Cliente> clientes = new TreeMap<>();
+    protected static TreeMap<Long,Cliente> clientes = new TreeMap();
     
     
     public Directorio() {
         
     }
     
-    public boolean agregarCliente(String telefono, Cliente cliente){
+    public static boolean agregarCliente(long telefono, Cliente cliente){
         if(clientes.containsKey(telefono)){
             return false;
         }else{
@@ -31,32 +32,54 @@ public class Directorio {
         }
     }
     
-    public Cliente buscarCliente(String numero){
+    public static Cliente buscarCliente(long telefono){
         Cliente cliente=null;
-        if(clientes.containsKey(numero)){
-            cliente = clientes.get(numero);
+        if(clientes.containsKey(telefono)){
+            cliente = clientes.get(telefono);
         }return cliente;
     }
     
-//    public boolean buscarTeléfono(String apellido){
-//        
-//    }
+    public static List<Long> buscarTelefono(String apellido){
+        ArrayList<Long> numeros = new ArrayList();
+        
+       for(Map.Entry<Long, Cliente> e:clientes.entrySet()){
+           Long clave = e.getKey();
+           Cliente valor = e.getValue();
+           
+           if(valor.getApellido().equals(apellido)){
+                numeros.add(clave);
+            }
+       }
+        
+       return numeros;
+    }
     
-//    public void buscarClientes(String ciudad){
-//        
-//    }
-    
-    public void borrarCliente(String dni){
-         Set<String> key=clientes.keySet();
-         Iterator it=key.iterator();
-         while(it.hasNext()){
-             String l1=(String)it.next();
-             Cliente c1=clientes.get(l1);
-             if(c1.getDni().equals(dni)){
-                it.remove();
-                System.out.println("El cliente BORRADO es: "+c1.toString());
-             }
-         }
-         
+    public static List<Cliente> buscarClientes(String ciudad){
+        ArrayList<Cliente> clientes1 = new ArrayList();
+        
+       for(Map.Entry<Long, Cliente> e:clientes.entrySet()){
+           Long clave = e.getKey();
+           Cliente valor = e.getValue();
+           
+           if(valor.getCiudad().equals(ciudad)){
+           clientes1.add(valor);
+           }  
+       }
+       return clientes1;
+    }
+       
+    public static void borrarCliente(long dni){
+        Long telefono = null;
+        for (Map.Entry<Long, Cliente> e : clientes.entrySet()) {
+            Long clave = e.getKey();
+            Cliente valor = e.getValue();
+            if(valor.getDni() == dni){
+                telefono = clave;
+            }
+        }
+        if(telefono != null){
+            clientes.remove(telefono);
+        }
+        
     }
 }

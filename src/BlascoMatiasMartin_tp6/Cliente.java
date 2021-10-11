@@ -15,9 +15,9 @@ public class Cliente {
     private String apellido;
     private String ciudad;
     private String domicilio;
-    private String dni;
+    private long dni;
 
-    public Cliente(String dni,String nombre, String apellido, String ciudad, String domicilio) {
+    public Cliente(long dni,String nombre, String apellido, String ciudad, String domicilio) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.ciudad = ciudad;
@@ -57,11 +57,11 @@ public class Cliente {
         this.domicilio = domicilio;
     }
 
-    public String getDni() {
+    public long getDni() {
         return dni;
     }
 
-    public void setDni(String dni) {
+    public void setDni(long dni) {
         this.dni = dni;
     }
    

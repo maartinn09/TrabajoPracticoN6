@@ -5,6 +5,9 @@
  */
 package BlascoMatiasMartin_tp6;
 
+import java.util.Map;
+import javax.swing.JOptionPane;
+import static BlascoMatiasMartin_tp6.Directorio.clientes;
 /**
  *
  * @author M
@@ -33,11 +36,11 @@ public class VistaBorrarCliente extends javax.swing.JInternalFrame {
         borrarApellido = new javax.swing.JLabel();
         borrarNombre = new javax.swing.JLabel();
         borrarCiudad = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
+        jtDni = new javax.swing.JTextField();
+        jtTelefono = new javax.swing.JTextField();
+        jtApellido = new javax.swing.JTextField();
+        jtNombre = new javax.swing.JTextField();
+        jtCiudad = new javax.swing.JTextField();
         borrarSalir = new javax.swing.JButton();
         borrarBuscar = new javax.swing.JButton();
 
@@ -65,15 +68,15 @@ public class VistaBorrarCliente extends javax.swing.JInternalFrame {
         borrarCiudad.setForeground(new java.awt.Color(51, 204, 255));
         borrarCiudad.setText("CIUDAD:");
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jtDni.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
-        jTextField2.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jtTelefono.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
-        jTextField3.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jtApellido.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
-        jTextField4.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jtNombre.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
-        jTextField5.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jtCiudad.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
         borrarSalir.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
         borrarSalir.setText("SALIR");
@@ -84,7 +87,12 @@ public class VistaBorrarCliente extends javax.swing.JInternalFrame {
         });
 
         borrarBuscar.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
-        borrarBuscar.setText("BUSCAR");
+        borrarBuscar.setText("Borrar");
+        borrarBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                borrarBuscarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -101,15 +109,15 @@ public class VistaBorrarCliente extends javax.swing.JInternalFrame {
                 .addGap(60, 60, 60)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField2)
-                    .addComponent(jTextField3)
-                    .addComponent(jTextField4)
-                    .addComponent(jTextField5)
+                    .addComponent(jtTelefono)
+                    .addComponent(jtApellido)
+                    .addComponent(jtNombre)
+                    .addComponent(jtCiudad)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jtDni, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(borrarBuscar)))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(borrarSalir)
@@ -123,24 +131,24 @@ public class VistaBorrarCliente extends javax.swing.JInternalFrame {
                 .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(borrarDNI)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(borrarBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(borrarTelefono)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(borrarApellido)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(borrarNombre)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(borrarCiudad)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addComponent(borrarSalir)
                 .addGap(19, 19, 19))
@@ -150,8 +158,41 @@ public class VistaBorrarCliente extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void borrarSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarSalirActionPerformed
-        // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_borrarSalirActionPerformed
+
+    private void borrarBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarBuscarActionPerformed
+        long dni = Long.parseLong(jtDni.getText());
+        long telefono = 0;
+        for(Map.Entry<Long, Cliente> e:clientes.entrySet()){
+           Long clave = e.getKey();
+           Cliente valor = e.getValue(); 
+        
+           if(dni == valor.getDni()){
+               telefono = clave;
+           }
+        }
+        
+        
+        Cliente cliente = Directorio.buscarCliente(telefono);
+        
+        
+        if(cliente == null){
+            Menu menu = new Menu();
+            JOptionPane.showMessageDialog(menu, "No existe el cliente");
+        }else{
+            jtTelefono.setText(String.valueOf(telefono));
+            jtNombre.setText(cliente.getNombre());
+            jtApellido.setText(cliente.getApellido());
+            jtCiudad.setText(cliente.getCiudad());
+            
+        
+            Directorio.borrarCliente(dni);
+            
+            Menu menu = new Menu();
+            JOptionPane.showMessageDialog(menu, "Cliente borrado");
+        }
+    }//GEN-LAST:event_borrarBuscarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -163,10 +204,10 @@ public class VistaBorrarCliente extends javax.swing.JInternalFrame {
     private javax.swing.JButton borrarSalir;
     private javax.swing.JLabel borrarTelefono;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jtApellido;
+    private javax.swing.JTextField jtCiudad;
+    private javax.swing.JTextField jtDni;
+    private javax.swing.JTextField jtNombre;
+    private javax.swing.JTextField jtTelefono;
     // End of variables declaration//GEN-END:variables
 }

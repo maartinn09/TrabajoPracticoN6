@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package BlascoMatiasMartin_tp6;
-
+import javax.swing.JOptionPane;
 /**
  *
  * @author M
@@ -34,11 +34,11 @@ public class VistaBusquedaCliente extends javax.swing.JInternalFrame {
         buscarNombre = new javax.swing.JLabel();
         buscarCiudad = new javax.swing.JLabel();
         buscarSalir = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
+        jtTelefono = new javax.swing.JTextField();
+        jtDni = new javax.swing.JTextField();
+        jtApellido = new javax.swing.JTextField();
+        jtNombre = new javax.swing.JTextField();
+        jtCiudad = new javax.swing.JTextField();
         buscarBuscar = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
@@ -74,18 +74,18 @@ public class VistaBusquedaCliente extends javax.swing.JInternalFrame {
             }
         });
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jtTelefono.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
-        jTextField2.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jtDni.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
-        jTextField3.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jtApellido.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
-        jTextField4.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jtNombre.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
-        jTextField5.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jtCiudad.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
         buscarBuscar.setFont(new java.awt.Font("Tahoma", 1, 15)); // NOI18N
-        buscarBuscar.setText("BUSCAR");
+        buscarBuscar.setText("Buscar");
         buscarBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buscarBuscarActionPerformed(evt);
@@ -112,9 +112,9 @@ public class VistaBusquedaCliente extends javax.swing.JInternalFrame {
                                         .addComponent(buscarTelefono)
                                         .addGap(18, 18, 18)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jtDni, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(18, 18, 18)
                                                 .addComponent(buscarBuscar))))
                                     .addGroup(layout.createSequentialGroup()
@@ -126,9 +126,9 @@ public class VistaBusquedaCliente extends javax.swing.JInternalFrame {
                                                 .addComponent(buscarCiudad)
                                                 .addGap(37, 37, 37)))
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
-                                            .addComponent(jTextField4)
-                                            .addComponent(jTextField5)))))
+                                            .addComponent(jtApellido, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
+                                            .addComponent(jtNombre)
+                                            .addComponent(jtCiudad)))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(142, 142, 142)
                                 .addComponent(jLabel1)))
@@ -143,24 +143,24 @@ public class VistaBusquedaCliente extends javax.swing.JInternalFrame {
                 .addGap(48, 48, 48)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buscarTelefono)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buscarBuscar))
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buscarDNI)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buscarApellido)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buscarNombre)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buscarCiudad)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(buscarSalir)
                 .addGap(21, 21, 21))
@@ -170,11 +170,23 @@ public class VistaBusquedaCliente extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buscarSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarSalirActionPerformed
-        // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_buscarSalirActionPerformed
 
     private void buscarBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarBuscarActionPerformed
-        // TODO add your handling code here:
+        Long telefono = Long.parseLong(jtTelefono.getText());
+        Cliente cliente = Directorio.buscarCliente(telefono);
+        
+        if(cliente == null){
+            Menu menu = new Menu();
+            JOptionPane.showMessageDialog(menu, "El cliente no existe");
+        }else{
+            jtDni.setText(String.valueOf(cliente.getDni()));
+            jtNombre.setText(cliente.getNombre());
+            jtApellido.setText(cliente.getApellido());
+            jtCiudad.setText(cliente.getCiudad());
+            
+        }
     }//GEN-LAST:event_buscarBuscarActionPerformed
 
 
@@ -187,10 +199,10 @@ public class VistaBusquedaCliente extends javax.swing.JInternalFrame {
     private javax.swing.JButton buscarSalir;
     private javax.swing.JLabel buscarTelefono;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jtApellido;
+    private javax.swing.JTextField jtCiudad;
+    private javax.swing.JTextField jtDni;
+    private javax.swing.JTextField jtNombre;
+    private javax.swing.JTextField jtTelefono;
     // End of variables declaration//GEN-END:variables
 }
